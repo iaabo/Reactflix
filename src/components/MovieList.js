@@ -11,15 +11,20 @@ const MovieList = () => {
     )
       .then((response) => response.json())
       .then((response) => {
-        setMovies(response.movies);
-        setGenres(response.genres);
+        if (!response.errors) {
+          setMovies(response.movies);
+          console.log(movies);
+          setGenres(response.genres);
+        } else {
+          setMovies([]);
+        }
       });
   }, []);
 
   return (
     <div>
       {movies.map((movie) => (
-        <Movie {...movie} />
+        <Movie {...movie} key={movie.id} />
       ))}
     </div>
   );
