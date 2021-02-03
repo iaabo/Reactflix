@@ -6,7 +6,15 @@ const WatchList = () => {
   const { watchlist } = useContext(GlobalContext);
   return (
     <div>
-      <h1> My Watchlist</h1>
+      <h1>My Watchlist</h1>
+      {watchlist.length > 0 ? (
+        <span>
+          {watchlist.length}
+          {watchlist.length === 1 ? "movie" : "movies"}
+        </span>
+      ) : (
+        ""
+      )}
 
       {watchlist.length > 0 ? (
         <div>

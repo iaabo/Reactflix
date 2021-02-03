@@ -22,12 +22,15 @@ const MovieList = () => {
       });
   }, []);
 
+
+  
   let onClickUp = () => {
     scroll.scrollToTop();
   };
 
   return (
     <div>
+  
       {movies.map((movie) => (
         <Movie {...movie} key={movie.id} />
       ))}
