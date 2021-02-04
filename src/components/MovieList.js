@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Movie from "../components/Movie";
-import { animateScroll as scroll } from "react-scroll";
+import "./Movie.css";
 
 const MovieList = () => {
   const [movies, setMovies] = useState([]);
@@ -22,20 +22,12 @@ const MovieList = () => {
       });
   }, []);
 
-
-  
-  let onClickUp = () => {
-    scroll.scrollToTop();
-  };
-
   return (
-    <div>
-  
-      {movies.map((movie) => (
-        <Movie {...movie} key={movie.id} />
-      ))}
-      <div className="row justifyCenter">
-        <button onClick={onClickUp}>Go to top</button>
+    <div className="container">
+      <div className="row justify-content-md-center">
+        {movies.map((movie) => (
+          <Movie {...movie} key={movie.id} />
+        ))}
       </div>
     </div>
   );

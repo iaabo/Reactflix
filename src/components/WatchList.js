@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
+import { Button } from "react-bootstrap";
 import WatchedMovie from "./WatchedMovie";
 
 
@@ -9,10 +10,10 @@ const WatchList = () => {
     <div>
       <h1>My Watchlist</h1>
       {watchlist.length > 0 ? (
-        <span> 
+        <Button variant="outline-danger"> 
           {watchlist.length}
           {watchlist.length === 1 ? " movie to watch" : " movies to watch"}
-        </span>
+        </Button>
       ) : (
         ""
       )}
