@@ -1,13 +1,14 @@
 import React, { useContext, useState } from "react";
 import { GlobalContext } from "../context/GlobalState";
-import Modal from "./Modal";
-import { Card, Button, ButtonGroup } from "react-bootstrap";
+import ModalJS from "./ModalJS";
+import { Card, Button, ButtonGroup, Modal } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const Movie = (movie) => {
   const { addMovieToWatchlist, watchlist } = useContext(GlobalContext);
-  const [isActive, setIsActive] = React.useState(false);
-  const [buttonPopup, setButtonPopup] = useState(false);
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   let storedMovie = watchlist.find((o) => o.id === movie.id);
 
@@ -30,17 +31,25 @@ const Movie = (movie) => {
         <Card.Body>
           <Card.Title>{movie.title}</Card.Title>
           <ButtonGroup className="d-flex justify-content-between">
-            <Button variant="warning" onClick={() => setButtonPopup(true)}>
+            <Button variant="warning" onClick={handleShow}>
               Info
             </Button>
-            <Modal trigger={buttonPopup} setTrigger={setButtonPopup}>
-              <div>
-                <p>Plot: {movie.plot}</p>
-                <p>Director: {movie.director}</p>
-                <p>Year:{movie.year}</p>
-                <p>Genre: {movie && movie.genres[0]}</p>
-                <p>Duration: {movie.runtime} min </p>
-              </div>
+            <Modal show={show} onHide={handleClose}>
+              <Modal.Header closeButton>{movie.title}</Modal.Header>
+              <Modal.Body>
+                <div>
+                  <p>{movie.plot}</p>
+                  <p>Director: {movie.director}</p>
+                  <p>Year: {movie.year}</p>
+                  <p>Genre: {movie && movie.genres[0]}</p>
+                  <p>Runtime: {movie.runtime} min </p>
+                </div>
+              </Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={handleClose}>
+                  Close
+                </Button>
+              </Modal.Footer>
             </Modal>
             <Button
               variant="danger"

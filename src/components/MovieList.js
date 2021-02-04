@@ -24,6 +24,7 @@ const MovieList = () => {
 
   return (
     <div className="container">
+       
       <div className="row justify-content-md-center">
         {movies.map((movie) => (
           <Movie {...movie} key={movie.id} />

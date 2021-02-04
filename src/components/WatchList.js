@@ -3,29 +3,33 @@ import { GlobalContext } from "../context/GlobalState";
 import { Button } from "react-bootstrap";
 import WatchedMovie from "./WatchedMovie";
 
-
 const WatchList = () => {
   const { watchlist } = useContext(GlobalContext);
   return (
-    <div>
-      <h1>My Watchlist</h1>
+    <div className="container">
+      <div className="row justify-content-md-center  m-3">
+        {watchlist.length > 0 ? (
+          <Button variant="danger">
+            {watchlist.length}
+            {watchlist.length === 1 ? " movie to watch" : " movies to watch"}
+          </Button>
+        ) : (
+          ""
+        )}
+      </div>
       {watchlist.length > 0 ? (
-        <Button variant="outline-danger"> 
-          {watchlist.length}
-          {watchlist.length === 1 ? " movie to watch" : " movies to watch"}
-        </Button>
-      ) : (
-        ""
-      )}
-
-      {watchlist.length > 0 ? (
-        <div>
+        <div className="row justify-content-md-center">
           {watchlist.map((movie) => (
             <WatchedMovie movie={movie} type="watchlist" />
           ))}
         </div>
       ) : (
-        <h1>No Movies to watch</h1>
+        <h1
+          className="row justify-content-md-center  m-3"
+          style={{ color: "#fff" }}
+        >
+          {`No Movies to watch :(`}
+        </h1>
       )}
     </div>
   );
