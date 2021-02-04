@@ -35,14 +35,7 @@ const MovieList = () => {
   };
 
   return (
-    <div className="container">
-      <div className="row justify-content-md-center">
-        {movies
-          .slice(pagesVisited, pagesVisited + moviesPerPage)
-          .map((movie) => (
-            <Movie {...movie} key={movie.id} />
-          ))}
-      </div>
+    <div className="container" >
       <div className="row justify-content-md-center m-3">
         <ReactPaginate
           previousLabel={"Previous"}
@@ -58,6 +51,13 @@ const MovieList = () => {
           disabledClassName={"paginationDisabled"}
           activeClassName={"paginationActive"}
         />
+      </div>
+      <div className="row justify-content-md-center">
+        {movies
+          .slice(pagesVisited, pagesVisited + moviesPerPage)
+          .map((movie) => (
+            <Movie {...movie} key={movie.id} />
+          ))}
       </div>
     </div>
   );

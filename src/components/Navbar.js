@@ -18,14 +18,14 @@ const NavBar = () => {
           </Link>
         </Navbar.Brand>
         <Navbar.Collapse>
-          <Button variant="danger">
             <Link
               to="/watchlist"
               style={{ color: "white", textDecoration: "none" }}
             >
-              Watchlist
-            </Link>
+          <Button variant="danger">
+              <span> Watchlist</span>
           </Button>
+            </Link>
         </Navbar.Collapse>
       </Navbar>
     </div>
