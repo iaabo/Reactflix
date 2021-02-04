@@ -2,15 +2,16 @@ import React, { useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
 import WatchedMovie from "./WatchedMovie";
 
+
 const WatchList = () => {
   const { watchlist } = useContext(GlobalContext);
   return (
     <div>
       <h1>My Watchlist</h1>
       {watchlist.length > 0 ? (
-        <span>
+        <span> 
           {watchlist.length}
-          {watchlist.length === 1 ? "movie" : "movies"}
+          {watchlist.length === 1 ? " movie to watch" : " movies to watch"}
         </span>
       ) : (
         ""

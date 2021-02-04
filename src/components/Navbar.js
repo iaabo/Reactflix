@@ -1,16 +1,37 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Button, Nav, Navbar, Col } from "react-bootstrap";
 import logo from "../assets/logo_transparent.png";
 
-const Navbar = () => {
+const NavBar = () => {
   return (
     <div>
-      <Link to="/">
-        <img src={logo} alt="" className="logo" style={{height:"60px", width:"280px"}} />
-      </Link>
-      <Link to="/watchlist">Watchlist</Link>
+      <Navbar fixed="top" bg="dark" variant="dark">
+        <Navbar.Brand>
+          <Link to="/">
+            <img
+              src={logo}
+              alt=""
+              className="logo"
+              style={{ height: "40px", width: "180px" }}
+            />
+          </Link>
+        </Navbar.Brand>
+        <Navbar.Collapse className="justify-content-end">
+          <Col xs={6} md={2}>
+            <Button variant="danger">
+              <Link
+                to="/watchlist"
+                style={{ color: "white", textDecoration: "none" }}
+              >
+                Watchlist
+              </Link>
+            </Button>
+          </Col>
+        </Navbar.Collapse>
+      </Navbar>
     </div>
   );
 };
 
-export default Navbar;
+export default NavBar;

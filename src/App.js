@@ -1,13 +1,13 @@
 import { Route, Redirect, Switch } from "react-router-dom";
 import MovieList from "./components/MovieList";
-import Navbar from "./components/Navbar";
+import NavBar from "./components/NavBar";
 import WatchList from "./components/WatchList";
 import { GlobalProvider } from "./context/GlobalState";
 
 function App() {
   return (
     <div>
-      <Navbar />
+      <NavBar />
       <GlobalProvider>
         <Switch>
           <Route exact path="/" component={MovieList} />
