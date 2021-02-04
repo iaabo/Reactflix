@@ -34,14 +34,18 @@ const Movie = (movie) => {
               Info
             </Button>
             <Modal show={show} onHide={handleClose}>
-              <Modal.Header closeButton>{movie.title}</Modal.Header>
+              <Modal.Header closeButton className="movie-title">{movie.title}</Modal.Header>
               <Modal.Body>
                 <div>
                   <p>{movie.plot}</p>
                   <p>Director: {movie.director}</p>
                   <p>Year: {movie.year}</p>
-                  <p>Genre: {movie && movie.genres[0]}</p>
                   <p>Runtime: {movie.runtime} min </p>
+                  <div style={{ display: "flex" }}>
+                    {movie.genres.map((movie) => (
+                      <p className="genre">{movie}</p>
+                    ))}
+                  </div>
                 </div>
               </Modal.Body>
               <Modal.Footer>

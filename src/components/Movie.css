@@ -17,12 +17,25 @@
 }
 
 .paginationBttns a:hover {
-  background-color: #921919;
+  background-color: #DD3444;
 }
 
 .paginationBttns a:focus {
   outline: none;
 }
 .paginationActive a {
-  background-color: #921919;
+  background-color: #DD3444;
+}
+
+.movie-title {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #DD3444;
+}
+.genre {
+  background-color: #DD3444;
+  padding: 4px;
+  margin: 2px 6px 2px 2px;
+  color: #fff;
+  border-radius: 3px;
 }
