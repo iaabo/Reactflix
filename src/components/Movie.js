@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import { GlobalContext } from "../context/GlobalState";
-import ModalJS from "./ModalJS";
 import { Card, Button, ButtonGroup, Modal } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
