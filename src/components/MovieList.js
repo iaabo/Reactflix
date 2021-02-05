@@ -53,7 +53,7 @@ const MovieList = () => {
         />
       </div>
       <div className="row justify-content-md-center m-3">
-        <Form.Control as="select"  custom>
+        <Form.Control as="select" custom>
           <option value="" selected disabled hidden>
             Filter by Genre
           </option>

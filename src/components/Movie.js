@@ -49,8 +49,8 @@ const Movie = (movie) => {
                 </div>
               </Modal.Body>
               <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
-                  Close
+                <Button variant="warning" onClick={handleClose}>
+                  Return to Search
                 </Button>
               </Modal.Footer>
             </Modal>
