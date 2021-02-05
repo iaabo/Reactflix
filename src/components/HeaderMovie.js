@@ -14,7 +14,7 @@ const HeaderMovie = () => {
         <Carousel.Item interval={2000}>
           <img className="d-block w-100" src={movie3} alt="First slide" />
           <Carousel.Caption>
-            <p style={{ backgroundColor: "#DD3444" }}>
+            <p style={{ backgroundColor: "#DD3444" , borderRadius: "8px", padding: "7px"}}>
               Search for your favourite genre!
             </p>
           </Carousel.Caption>
@@ -22,7 +22,7 @@ const HeaderMovie = () => {
         <Carousel.Item interval={2000}>
           <img className="d-block w-100" src={movie2} alt="Third slide" />
           <Carousel.Caption>
-            <p style={{ backgroundColor: "#DD3444" }}>
+            <p style={{ backgroundColor: "#DD3444" , borderRadius: "8px", padding: "7px"}}>
              See the info about the movie.
             </p>
           </Carousel.Caption>
@@ -30,7 +30,7 @@ const HeaderMovie = () => {
         <Carousel.Item interval={2000}>
           <img className="d-block w-100" src={movie1} alt="Third slide" />
           <Carousel.Caption>
-            <p style={{ backgroundColor: "#DD3444" }}>
+            <p style={{ backgroundColor: "#DD3444" , borderRadius: "8px", padding: "7px"}}>
              Add the movie to your watchlist.
             </p>
           </Carousel.Caption>
@@ -38,7 +38,7 @@ const HeaderMovie = () => {
         <Carousel.Item interval={2000}>
           <img className="d-block w-100" src={movie4} alt="Third slide" />
           <Carousel.Caption>
-            <p style={{ backgroundColor: "#DD3444" }}>
+            <p style={{ backgroundColor: "#DD3444" , borderRadius: "8px", padding: "7px"}}>
               Keep track of the movies you want to watch.
             </p>
           </Carousel.Caption>
@@ -46,7 +46,7 @@ const HeaderMovie = () => {
         <Carousel.Item interval={2000}>
           <img className="d-block w-100" src={movie5} alt="Third slide" />
           <Carousel.Caption>
-            <p style={{ backgroundColor: "#DD3444" }}>
+            <p style={{ backgroundColor: "#DD3444" , borderRadius: "8px", padding: "7px"}}>
               Delete them when you already saw them.
             </p>
           </Carousel.Caption>
