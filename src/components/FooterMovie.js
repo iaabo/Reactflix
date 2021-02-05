@@ -9,7 +9,7 @@ const FooterMovie = () => {
             className="text-light"
             href="https://www.linkedin.com/in/inesbarroso/"
           >
-            © Reactflix - Done by Inês Barroso
+            © Reactflix - Done during Wild Code School 2021
           </a>
         
       </div>
