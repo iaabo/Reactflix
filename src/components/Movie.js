@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { GlobalContext } from "../context/GlobalState";
 import { Card, Button, ButtonGroup, Modal } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { generatePath } from "react-router-dom";
 
 const Movie = (movie) => {
   const { addMovieToWatchlist, watchlist } = useContext(GlobalContext);
@@ -34,7 +35,9 @@ const Movie = (movie) => {
               Info
             </Button>
             <Modal show={show} onHide={handleClose}>
-              <Modal.Header closeButton className="movie-title">{movie.title}</Modal.Header>
+              <Modal.Header closeButton className="movie-title">
+                {movie.title}
+              </Modal.Header>
               <Modal.Body>
                 <div>
                   <p>{movie.plot}</p>
@@ -42,8 +45,8 @@ const Movie = (movie) => {
                   <p>Year: {movie.year}</p>
                   <p>Runtime: {movie.runtime} min </p>
                   <div style={{ display: "flex" }}>
-                    {movie.genres.map((movie) => (
-                      <p className="genre">{movie}</p>
+                    {movie.genres.map((genre) => (
+                      <p className="genre">{genre}</p>
                     ))}
                   </div>
                 </div>
