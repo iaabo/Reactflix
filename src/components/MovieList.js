@@ -89,8 +89,8 @@ const MovieList = () => {
             nextLabel={"Next"}
             pageCount={pageCount}
             onPageChange={changePage}
-            marginPagesDisplayed={1}
-            pageRangeDisplayed={2}
+            marginPagesDisplayed={0}
+            pageRangeDisplayed={1}
             breakLabel="..."
             containerClassName={"paginationBttns"}
             previousLinkClassName={"previousBttns"}
