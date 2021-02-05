@@ -9,8 +9,8 @@ const MovieList = () => {
   const [movies, setMovies] = useState([]);
   const [genres, setGenres] = useState([]);
   const [selectedGenre, setSelectedGenre] = useState("");
-   const [currentPage, setCurrentPage] = useState(0);
-    const [moviesPerPage] = useState(6);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [moviesPerPage] = useState(6);
 
   useEffect(() => {
     fetch(
@@ -30,7 +30,7 @@ const MovieList = () => {
 
   // Pagination
 
-    const pagesVisited = currentPage * moviesPerPage;
+  const pagesVisited = currentPage * moviesPerPage;
   const pageCount = Math.ceil(movies.length / moviesPerPage);
   const changePage = ({ selected }) => {
     setCurrentPage(selected);
@@ -52,7 +52,7 @@ const MovieList = () => {
             <option value="" selected disabled hidden>
               Filter by Genre
             </option>
-            <option value={genres}> Display All</option>
+            <option value=""> Display All</option>
             {genres.map((genre, index) => (
               <option value={genre} key={index}>
                 {genre}
@@ -78,8 +78,11 @@ const MovieList = () => {
         </div>
         <div className="row justify-content-center">
           {movies
-
-            .filter((movie) => movie.genres.includes(selectedGenre))
+            .filter((movie) =>
+              selectedGenre !== ""
+                ? movie.genres.includes(selectedGenre)
+                : movies
+            )
             .slice(pagesVisited, pagesVisited + moviesPerPage)
             .map((movie) => (
               <Movie {...movie} key={movie.id} />
