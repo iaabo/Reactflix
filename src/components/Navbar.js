@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
+import { GlobalContext } from "../context/GlobalState";
 import { Link } from "react-router-dom";
 import { Button, Navbar, Col } from "react-bootstrap";
 import logo from "../assets/logo_transparent.png";
 
 const NavBar = () => {
+  const { watchlist } = useContext(GlobalContext);
   return (
     <div>
       <Navbar bg="dark" variant="dark">
@@ -18,14 +20,14 @@ const NavBar = () => {
           </Link>
         </Navbar.Brand>
         <Navbar.Collapse>
-            <Link
-              to="/watchlist"
-              style={{ color: "white", textDecoration: "none" }}
-            >
-          <Button variant="danger">
-              <span> Watchlist</span>
-          </Button>
-            </Link>
+          <Link
+            to="/watchlist"
+            style={{ color: "white", textDecoration: "none" }}
+          >
+            <Button variant="danger">
+              <span> Watchlist ({watchlist.length})</span>
+            </Button>
+          </Link>
         </Navbar.Collapse>
       </Navbar>
     </div>

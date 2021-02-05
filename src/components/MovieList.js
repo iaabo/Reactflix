@@ -38,7 +38,7 @@ const MovieList = () => {
     <div className="container">
       <div className="row justify-content-md-center m-3">
         <ReactPaginate
-          previousLabel={"Previous"}
+          previousLabel={"Prev"}
           nextLabel={"Next"}
           pageCount={pageCount}
           onPageChange={changePage}

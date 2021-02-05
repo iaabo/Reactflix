@@ -7,8 +7,8 @@ import { GlobalProvider } from "./context/GlobalState";
 function App() {
   return (
     <div>
-      <NavBar />
       <GlobalProvider>
+      <NavBar />
         <Switch>
           <Route exact path="/" component={MovieList} />
           <Route path="/watchlist" component={WatchList} />
