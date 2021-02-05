@@ -71,22 +71,6 @@ const MovieList = () => {
             ))}
           </Form.Control>
         </div>
-        <div className="row justify-content-md-center">
-          <ReactPaginate
-            previousLabel={"Prev"}
-            nextLabel={"Next"}
-            pageCount={pageCount}
-            onPageChange={changePage}
-            marginPagesDisplayed={0}
-            pageRangeDisplayed={1}
-            breakLabel="..."
-            containerClassName={"paginationBttns"}
-            previousLinkClassName={"previousBttns"}
-            nextLinkClassName={"nextBttn"}
-            disabledClassName={"paginationDisabled"}
-            activeClassName={"paginationActive"}
-          />
-        </div>
         <div className="row justify-content-center">
           {movies
             .filter((movie) =>
@@ -98,6 +82,22 @@ const MovieList = () => {
             .map((movie) => (
               <Movie {...movie} key={movie.id} />
             ))}
+        </div>
+        <div className="row justify-content-md-center">
+          <ReactPaginate
+            previousLabel={"Prev"}
+            nextLabel={"Next"}
+            pageCount={pageCount}
+            onPageChange={changePage}
+            marginPagesDisplayed={1}
+            pageRangeDisplayed={2}
+            breakLabel="..."
+            containerClassName={"paginationBttns"}
+            previousLinkClassName={"previousBttns"}
+            nextLinkClassName={"nextBttn"}
+            disabledClassName={"paginationDisabled"}
+            activeClassName={"paginationActive"}
+          />
         </div>
       </div>
     </div>
