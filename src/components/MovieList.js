@@ -11,6 +11,7 @@ const MovieList = () => {
   const [selectedGenre, setSelectedGenre] = useState("");
   const [currentPage, setCurrentPage] = useState(0);
   const [moviesPerPage] = useState(6);
+  const [pageCount, setPageCount] = useState(0);
 
   useEffect(() => {
     fetch(
@@ -20,6 +21,7 @@ const MovieList = () => {
       .then((response) => {
         if (!response.errors) {
           setMovies(response.movies);
+          setPageCount(Math.ceil(response.movies.length / moviesPerPage))
           console.log(movies);
           setGenres(response.genres);
         } else {
@@ -31,16 +33,25 @@ const MovieList = () => {
   // Pagination
 
   const pagesVisited = currentPage * moviesPerPage;
-  const pageCount = Math.ceil(movies.length / moviesPerPage);
+
   const changePage = ({ selected }) => {
     setCurrentPage(selected);
   };
 
-  //filtering onChange
 
+  
+  //filtering onChange
+  
   const handleChange = (e) => {
-    e.preventDefault();
-    setSelectedGenre(e.target.value);
+    const currentGenre = e.target.value
+    // async
+    setSelectedGenre(currentGenre);
+    
+    // sync
+    const filteredMovies = movies.filter((movie) =>
+    currentGenre !== "" ? movie.genres.includes(currentGenre) : movie
+    );
+    setPageCount(Math.ceil(filteredMovies.length / moviesPerPage));
   };
 
   return (
@@ -81,7 +92,7 @@ const MovieList = () => {
             .filter((movie) =>
               selectedGenre !== ""
                 ? movie.genres.includes(selectedGenre)
-                : movies
+                : movie
             )
             .slice(pagesVisited, pagesVisited + moviesPerPage)
             .map((movie) => (
