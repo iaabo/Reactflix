@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Button, Navbar, Col } from "react-bootstrap";
 import logo from "../assets/logo_transparent.png";
 
-const NavBar = () => {
+const NavMovie = () => {
   const { watchlist } = useContext(GlobalContext);
   return (
     <div>
@@ -34,4 +34,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default NavMovie;
