@@ -15,8 +15,8 @@ function App() {
           <Route path="/watchlist" component={WatchList} />
           <Redirect to="/" />
         </Switch>
-      </GlobalProvider>
       <FooterMovie />
+      </GlobalProvider>
     </div>
   );
 }
