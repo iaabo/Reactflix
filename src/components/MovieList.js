@@ -8,6 +8,7 @@ import "./Movie.css";
 const MovieList = () => {
   const [movies, setMovies] = useState([]);
   const [genres, setGenres] = useState([]);
+  const [selectedGenre, setSelectedGenre] = useState("");
   const [currentPage, setCurrentPage] = useState(0);
   const [moviesPerPage] = useState(6);
 
@@ -35,21 +36,23 @@ const MovieList = () => {
     setCurrentPage(selected);
   };
 
+  //filtering onChange
+
   return (
     <div>
-        <HeaderMovie />
+      <HeaderMovie />
       <div className="container">
         <div className="row justify-content-md-center m-3">
-          <Form.Control as="select" custom>
-            <option value="" selected disabled hidden>
+          <Form.Control as="select" custom /* onChange Method*/>
+            <option value="" selected disabled hidden> 
               Filter by Genre
             </option>
             {genres.map((genre, index) => (
               <option value={genre} key={index}>
                 {genre}
               </option>
-            ))}
-          </Form.Control>
+            ))} 
+          </Form.Control> 
         </div>
         <div className="row justify-content-md-center">
           <ReactPaginate
@@ -67,10 +70,10 @@ const MovieList = () => {
             activeClassName={"paginationActive"}
           />
         </div>
-        <div className="row justify-content-md-center">
+        <div className="row justify-content-center">
           {movies
             .slice(pagesVisited, pagesVisited + moviesPerPage)
-            .filter((movie) => movie.genre === movie.genre)
+            .filter((movie) => movie.genre === movie.genre) //call the filteredthing function
             .map((movie) => (
               <Movie {...movie} key={movie.id} />
             ))}
